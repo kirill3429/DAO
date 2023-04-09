@@ -42,7 +42,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public void saveUser(String name, String lastName, byte age) {
         try (Session session = factory.getCurrentSession()) {
             session.beginTransaction();
-            session.save(new User(name,lastName,age));
+            session.save(new User(name, lastName, age));
             session.getTransaction().commit();
         }
     }
