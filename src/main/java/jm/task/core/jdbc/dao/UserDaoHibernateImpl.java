@@ -28,10 +28,6 @@ public class UserDaoHibernateImpl implements UserDao {
                     "  `age` int NOT NULL,\n" +
                     "  PRIMARY KEY (`id`))").executeUpdate();
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
         }
     }
 
@@ -42,10 +38,6 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction = session.beginTransaction();
             session.createNativeQuery("DROP TABLE IF EXISTS users").executeUpdate();
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
         }
     }
 
